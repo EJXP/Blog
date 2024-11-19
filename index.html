@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Tech Blog</title>
+    <meta name="description" content="Technology blogs EJXP.org">
+    <meta name="keywords" content="technology, blog, blogs, technology blog, technology blogs, ejxp, ejxp blogs, ejxp blog">
+    <meta name="robots" content="index, follow"> 
+    <style>
+        body {
+            font-family: 'Comfortaa', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background: url('https://assets.ejxp.org/images/banner-blog.png') no-repeat center center/cover;
+            color: #000000;
+            text-align: center;
+            padding: 90px;
+            position: sticky;
+            max-height: 600px !important;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.7); /* Add a slight transparency */
+        }
+        header h1 {
+            font-size: 3.5rem;
+            margin: 0;
+        }
+        header p {
+            font-size: 1.5rem;
+            margin-top: 0.5rem;
+            color: #ddd;
+        }
+        .title {
+            font-size: 40px;
+            text-align: center;
+            color: #000000;
+        }
+        nav {
+            background-color: #fff;
+            padding: 1rem;
+            border-bottom: 1px solid #eaeaea;
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li {
+            margin: 0 1rem;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+        }
+        nav ul li a:hover {
+            color: #0077cc;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .blog-post {
+            display: flex;
+            flex-wrap: wrap;
+            background: #ffffff;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        .blog-post:hover {
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+        }
+        .blog-post img {
+            max-width: 100%;
+            border-radius: 8px;
+            flex: 1 1 300px;
+        }
+        .blog-post-content {
+            flex: 2 1 500px;
+            padding: 1rem 1.5rem;
+        }
+        .blog-post h2 {
+            font-size: 2rem;
+            margin: 0 0 0.5rem;
+            color: #1a1a1a;
+        }
+        .blog-post .meta {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 1rem;
+        }
+        .blog-post p {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #444;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            background-color: #ffffff;
+            border-top: 1px solid #eaeaea;
+            color: #666;
+            margin-top: 2rem;
+        }
+        footer a {
+            color: #0077cc;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.8rem;
+            }
+            .blog-post {
+                flex-direction: column;
+            }
+            .blog-post-content {
+                padding: 1rem 0;
+            }
+        }
+        .search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers the icon */
+    margin: 0 auto;
+    max-width: 400px;
+    height: 50px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 50%; /* Center the icon */
+    transform: translateX(-50%); /* Offset by 50% to perfectly center */
+    width: 40px;
+    height: 40px;
+    background-image: url('https://assets.ejxp.org/images/search-icon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-box {
+    display: none;
+    width: 100%;
+    padding: 10px 10px 10px 40px;
+    border: 2px solid black;
+    border-radius: 25px;
+    outline: none;
+    font-size: 16px;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+.search-box.visible {
+    display: block;
+    animation: moveToLeft 0.3s ease forwards;
+}
+
+.search-box.hidden {
+    animation: moveBackRight 0.3s ease forwards;
+}
+
+.results-list {
+    margin-top: 10px;
+    list-style: none;
+    padding: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.results-list li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+
+.results-list li:hover {
+    background: #f1f1f1;
+}
+
+@keyframes moveToLeft {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    to {
+        width: 100%;
+        opacity: 1;
+    }
+}
+
+@keyframes moveBackRight {
+    from {
+        width: 100%;
+        opacity: 1;
+    }
+    to {
+        width: 0;
+        opacity: 0;
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+    <header></header>
+    <div class="title">
+        <h2>Popular Blogs</h2>
+    </div>
+
+
+
+<nav>
+    <ul>
+        <li><a href="https://blog.ejxp.org">Home</a></li>
+        <li><a href="https://blog.ejxp.org/about">About</a></li>
+        <li><a href="https://blog.ejxp.org">Blog</a></li>
+        <li><a href="https://ejxp.org/support">Contact</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    <article class="blog-post">
+        <img src="https://assets.ejxp.org/images/blog/nvidia-blog-rtx-5090.png" alt="NVIDIA" width="500" height="250">
+        <div class="blog-post-content">
+            <h2>NVIDIA RTX 5090 specs, release date, and price</h2>
+            <div class="meta">Posted on November 18, 2024</div>
+            <p>The NVIDIA RTX 5090 will be one of the most powerful consumer GPUs upon its release. It is expected that'll it'll be at least 10% more powerful than the current contender for one of the best consumer GPUs; the RTX 409...</p>
+        </div>
+    </article>
+
+    <article class="blog-post">
+        <style>
+            .crop-image {
+              width: 500px;
+              height: 250px;
+              object-fit: none;
+            }
+          </style>
+          <img src="https://assets.ejxp.org/images/blog/jarvis-blog.png" alt="JARVIS" class="crop-image">
+          
+        <div class="blog-post-content">
+            <h2>How close are we to J.A.R.V.I.S. from Iron Man in real life with GPT-4o?</h2>
+            <div class="meta">Posted on November 16, 2024</div>
+            <p>Artificial intelligence is no longer the future—it's the present. OpenAI's ChatGPT is expanding rapidly; and their latest model: GPT-4o, is no jok...</p>
+        </div>
+    </article>
+
+    <article class="blog-post">
+        <img src="https://assets.ejxp.org/images/blog/tech-2025-blog.png" alt="2025 TECH" width="500" height="250">
+        <div class="blog-post-content">
+            <h2>Top 10 Exciting Tech Product releases in 2025</h2>
+            <div class="meta">Posted on November 12, 2024</div>
+            <p>Tech products play a crucial role in today's world, making it essential to stay informed about the latest and upcoming innovations, such as the iPhone 17, RTX 59...</p>
+        </div>
+    </article>
+</div>
+
+<div class="search-container" id="search-container">
+    <div class="search-icon" id="search-icon"></div>
+    <input
+        type="text"
+        id="search-input"
+        placeholder="Search articles..."
+        class="search-box hidden"
+    />
+    <ul id="results-list" class="results-list"></ul>
+</div>
+
+
+<script>
+// Sample data
+const articles = [
+    "Understanding JavaScript Closures",
+    "A Guide to HTML5 and CSS3",
+    "Introduction to Web Development",
+    "Responsive Design Best Practices",
+    "Building Advanced Search Features",
+    "Mastering Flexbox and Grid Layouts",
+];
+
+// DOM elements
+const searchIcon = document.getElementById('search-icon');
+const searchInput = document.getElementById('search-input');
+const searchContainer = document.getElementById('search-container');
+const resultsList = document.getElementById('results-list');
+
+let isSearchVisible = false;
+
+// Toggle search visibility
+searchIcon.addEventListener('click', () => {
+    if (isSearchVisible) {
+        // Hide the search field and move the icon back
+        searchInput.classList.remove('visible');
+        searchInput.classList.add('hidden');
+        searchIcon.style.transform = 'translateX(-50%)'; // Move icon back to original position
+        searchInput.value = ""; // Clear the search input
+        resultsList.innerHTML = ""; // Clear results
+    } else {
+        // Show the search field and move the icon left
+        searchInput.classList.remove('hidden');
+        searchInput.classList.add('visible');
+        searchInput.focus();
+        searchIcon.style.transform = 'translateX(-245px)'; // Move the icon to the left
+    }
+    isSearchVisible = !isSearchVisible;
+});
+
+// Fuzzy search function
+function fuzzySearch(query, items) {
+    const lowerQuery = query.toLowerCase();
+    return items.filter(item =>
+        item.toLowerCase().includes(lowerQuery)
+    );
+}
+
+// Display search results
+searchInput.addEventListener('input', () => {
+    const query = searchInput.value.trim();
+    const results = fuzzySearch(query, articles);
+
+    resultsList.innerHTML = results
+        .map(result => `<li>${result}</li>`)
+        .join('');
+});
+
+    </script>
+</body>
+</html>
+
+
+<footer>
+    <p>&copy; 2024 EJXP All Rights Reserved. ‎ ‎ ‎ ‎ ‎ ‎ ‎ <a href="https://ejxp.org/support">Support</a></p>
+</footer>
+
+</body>
+</html>
+    
